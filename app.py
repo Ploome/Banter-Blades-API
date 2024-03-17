@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from database import db
-from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token, JWTManager
 
 
 def create_app():
@@ -15,8 +14,6 @@ def create_app():
     
     # Apply CORS to this app instance
     CORS(app)
-
-    jwt = JWTManager(app)
 
     with app.app_context():
         db.create_all()
